@@ -1,7 +1,7 @@
-import { getUser } from '/src/scripts/services/user.js'
-import { getRepositories } from '/src/scripts/services/repositories.js'
-import { user } from '/src/scripts/entities/user.js'
-import { screen } from '/src/scripts/entities/screen.js'
+import { getUser } from './services/user.js'
+import { getRepositories } from './services/repositories.js'
+import { user } from './entities/user.js'
+import { screen } from './entities/screen.js'
 
 document.getElementById('btn-search').addEventListener('click', () => {
     const userName = document.getElementById('input-search').value
