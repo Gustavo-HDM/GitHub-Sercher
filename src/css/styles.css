@@ -148,6 +148,35 @@ main {
   color: #fff
 }
 
+/* EVENTS */
+
+.container .profile-data .events h2{
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.container .profile-data .events ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container .profile-data .events ul li a{
+  padding: 20px;
+  border: 1px solid grey;  
+  margin: 20px;
+  display: block;
+  border-radius: 7px;
+  transition: 0.3s ease-in-out;
+}
+
+.container .profile-data .events ul li a:hover{
+  background-color:hotpink;
+  color: #fff
+}
+
+/* MEDIA */
+
 .container .profile-data.hide{
   display: none;
 }
