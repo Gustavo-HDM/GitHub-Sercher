@@ -28,9 +28,9 @@ const screen = {
 
             if(event.type === 'PushEvent' && event.payload.commits.length > 0) {
                 const commitMessage = event.payload.commits[0].message
-                eventItens += `<li><a href="${event.repo.url}" target="_blank">${event.type} / ${commitMessage}</a></li>`
+                eventItens += `<li><a href="${event.repo.url}" target="_blank">${event.type} -> ${commitMessage}</a></li>`
             } else if (event.type === 'CreateEvent') {
-                eventItens += `<li><a href="${event.repo.url}" target="_blank">${event.type}</a></li>`
+                eventItens += `<li><a href="${event.repo.url}" target="_blank">${event.type} -> Sem mensagem de commit</a></li>`
             }
         })
 
