@@ -14,7 +14,26 @@ const screen = {
                                         </div>`
 
         let repositoriesItens = ''
-        user.repositories.forEach(repo => repositoriesItens += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`)
+        user.repositories.forEach(repo => {
+
+            let repoLanguage = repo.language
+            if (repoLanguage === null || repoLanguage === undefined) {
+                repoLanguage = '❌'
+            } 
+
+            repositoriesItens += `  <li>
+                                        <a href="${repo.html_url}" target="_blank">
+                                            <div class="repo-name">${repo.name}</div>
+                                            <div class="repo-icons">
+                                                <span><i>🍴</i>${repo.forks_count}</span>
+                                                <span><i>⭐</i>${repo.stargazers_count}</span>
+                                                <span><i>👀</i>${repo.watchers_count}</span>
+                                                <span><i>🖥️</i>${repoLanguage}</span>
+                                            </div>
+                                        </a>
+                                    </li>`
+
+        })
 
         if (user.repositories.length > 0) {
             this.userProfile.innerHTML += ` <div class="repositories section">
@@ -26,7 +45,7 @@ const screen = {
         let eventItens = ''
         user.events.forEach(event => {
 
-            if(event.type === 'PushEvent' && event.payload.commits.length > 0) {
+            if (event.type === 'PushEvent' && event.payload.commits.length > 0) {
                 const commitMessage = event.payload.commits[0].message
                 eventItens += `<li><a href="${event.repo.url}" target="_blank">${event.type} -> ${commitMessage}</a></li>`
             } else if (event.type === 'CreateEvent') {
